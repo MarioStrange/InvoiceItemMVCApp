@@ -1,0 +1,87 @@
+﻿@model IEnumerable<InvoiceItemMVCApp.Models.Invoice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Fakture</h2>
+
+<p>
+    @Html.ActionLink("Nova faktura", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceCreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoicePaymentFinalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemTotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceTotalPriceWithTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceCreator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceCustomer)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceCreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoicePaymentFinalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemTotalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceTotalPriceWithTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceCreator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceCustomer)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.InvoiceId }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.InvoiceId }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.InvoiceId })
+        </td>
+    </tr>
+}
+
+</table>
